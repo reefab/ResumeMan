@@ -6,13 +6,13 @@ It has the following features:
 
  * Separation between content and data, all your resume information is an YAML
    file.
- * Fork this project for maintening multiple versions of you resume in sync.
+ * Fork this project for maintening multiple versions of your resume in sync.
  * Markdown for formatting of the longer paragraphs.
- * Default template included. ([SRT](http://sampleresumetemplate.net/)).
+ * Default template included: [SRT](http://sampleresumetemplate.net/).
  * You can preview your changes with Middleman's included server.
  * config.ru file included for use with [Pow](http://pow.cx).
  * Automatic PDF generation using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/).
- * Turnkey deployment to your `http://yourusername.github.com/resume` no configuration necessary. 
+ * Turnkey deployment to a `http://yourusername.github.com/resume` page no configuration necessary. 
 
 ## Preview
 
@@ -53,6 +53,6 @@ Upload it to a github page. Your resume will be available at `http://yourusernam
 
 ### Note on PDF generation
 
-Wkhtmltopdf doesn't have the best PDF rendering, keep that in mind, sometimes
+Wkhtmltopdf doesn't have the best PDF rendering. Manually
 exporting a PDF version from Safari/Chrome might have a better result
 especially for page breaks.
