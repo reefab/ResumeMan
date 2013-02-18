@@ -1,0 +1,73 @@
+headers:
+    profile: Profile
+    skills: Skills
+    languages: Languages
+    techs: Technical
+    jobs: Experiences
+    links: Links
+    download: Download PDF
+
+info:
+    name: Jonathan Doe
+    shortdesc: Web Designer, Director
+    email: example@example.com
+    phone: (313) - 867-5309
+    address:
+        - 123 Fake Street
+        - City, Country
+    desc: |
+        Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.
+
+skills:
+    - name: Web design
+      desc: Assertively exploit wireless initiatives rather than synergistic core competencies.
+    - name: Interface Design
+      desc: Credibly streamline mission-critical value with multifunctional functionalities.
+    - name: Project Direction
+      desc: Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.
+
+languages:
+    - name: English
+      level: Native language
+    - name: Spanish
+      level: Fluent
+
+alphabetsoup:
+    - XHTML
+    - CSS
+    - Javascript
+
+    - Jquery
+    - PHP
+    - CVS / Subversion
+
+    - OS X
+    - Windows XP/Vista
+    - Linux
+
+links:
+    - name: homepage
+      url: http://example.com/
+    - name: Project Page
+      url: https://github.com/reefab/ResumeMan
+
+jobs:
+    - title: Senior Interface Designer
+      company: Facebook
+      dates: 2005 - 2007
+      desc: |
+          Intrinsicly enable optimal core competencies through corporate relationships. 
+
+          Phosfluorescently implement worldwide vortals and client-focused imperatives. 
+
+          Conveniently initiate virtual paradigms and top-line convergence.
+
+    - title: Junior Interface Designer
+      company: Apple Inc.
+      dates: 2005 - 2007
+      desc: |
+          Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. 
+
+          Compellingly morph extensive niche markets with mission-critical ideas. 
+
+          Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.

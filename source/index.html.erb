@@ -1,0 +1,130 @@
+<div id="doc2" class="yui-t7">
+    <div id="inner">
+
+        <div id="hd">
+            <div class="yui-gc">
+                <div class="yui-u first">
+                    <h1><%= data.resume.info.name %></h1>
+                    <h2><%= data.resume.info.shortdesc %></h2>
+                </div>
+
+                <div class="yui-u">
+                    <div class="contact-info">
+                        <h3><a id="pdf" href="resume.pdf"><%= data.resume.headers.download %></a></h3>
+                        <h3><a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></h3>
+                        <h3><%= data.resume.info.phone %></h3>
+                        <% data.resume.info.address.each do |line| %>
+                            <h3><%= line %></h3>
+                        <% end %>
+                    </div><!--// .contact-info -->
+                </div>
+            </div><!--// .yui-gc -->
+        </div><!--// hd -->
+
+        <div id="bd">
+            <div id="yui-main">
+                <div class="yui-b">
+
+                    <div class="yui-gf">
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.profile %></h2>
+                        </div>
+                        <div class="yui-u">
+                            <p><%= data.resume.info.desc %></p>
+                        </div>
+                    </div><!--// .yui-gf -->
+
+                    <div class="yui-gf">
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.skills %></h2>
+                        </div>
+                        <div class="yui-u">
+                            <% data.resume.skills.each do |skill| %>
+                            <div class="talent">
+                                <h2><%= skill.name %></h2>
+                                <p><%= skill.desc %></p>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div><!--// .yui-gf -->
+
+                    <div class="yui-gf no-page-breaker">
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.techs %></h2>
+                        </div>
+                        <div class="yui-u">
+                            <% data.resume.alphabetsoup.each.with_index do |skill, index| %>
+                                <% if (index + 1) % 3 == 1 %>
+                                    <ul class="soup">
+                                <% end %>
+
+                                <li><%= skill %></li>
+
+                                <% if (index + 1) % 3 == 0 %>
+                                    </ul>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div><!--// .yui-gf-->
+
+                    <div class="yui-gf">
+
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.jobs %></h2>
+                        </div><!--// .yui-u -->
+
+                        <div class="yui-u">
+                            <% data.resume.jobs.each do |job| %>
+                            <div class="job no-page-breaker">
+                                <h2><%= job.company %></h2>
+                                <h3><%= job.title %></h3>
+                                <h4><%= job.dates %></h4>
+                                <p><%= Maruku.new(job.desc).to_html %></p>
+                            </div>
+                            <% end %>
+                        </div><!--// .yui-u -->
+                    </div><!--// .yui-gf -->
+
+                    <div class="yui-gf">
+
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.languages %></h2>
+                        </div><!--// .yui-u -->
+
+                        <div class="yui-u">
+                            <% data.resume.languages.each do |lang| %>
+                            <div class="talent">
+                                <h2><%= lang.name %></h2>
+                                <p><%= lang.level %></p>
+                            </div>
+                            <% end %>
+                        </div><!--// .yui-u -->
+                    </div><!--// .yui-gf -->
+
+                    <div class="yui-gf">
+
+                        <div class="yui-u first">
+                            <h2><%= data.resume.headers.links %></h2>
+                        </div><!--// .yui-u -->
+
+                        <div class="yui-u">
+                            <ul class="talent">
+                            <% data.resume.links.each do |link| %>
+                                <li><%= link_to link.name, link.url %></li>
+                            <% end %>
+                            </ul>
+                        </div><!--// .yui-u -->
+                    </div><!--// .yui-gf -->
+
+                </div><!--// .yui-b -->
+            </div><!--// yui-main -->
+        </div><!--// bd -->
+
+        <div id="ft">
+            <p><%= data.resume.info.name %> &mdash; <a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a> &mdash; <%= data.resume.info.phone %></p>
+        </div><!--// footer -->
+
+    </div><!-- // inner -->
+
+
+</div><!--// doc -->
