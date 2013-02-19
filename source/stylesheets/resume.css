@@ -27,8 +27,8 @@ body { font-family: 'sourcepro'; color: #444; }
 
 /* //-- header, body, footer -- */
 #hd { margin: 2.5em 0 3em 0; padding-bottom: 1.5em; border-bottom: 1px solid #ccc }
-#hd h1 { font-size: 48px; text-transform: uppercase; letter-spacing: 0.03em;}
-#hd h2 { text-transform: uppercase; letter-spacing: 0.03em;}
+#hd h1 { font-size: 48px; text-transform: uppercase; letter-spacing: 2px;}
+#hd h2 { text-transform: uppercase; letter-spacing: 2px;}
 #bd, #ft { margin-bottom: 2em; }
 
 /* //-- footer -- */
