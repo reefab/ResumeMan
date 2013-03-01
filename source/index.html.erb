@@ -102,8 +102,22 @@
                                 </div><!--// .yui-u -->
                             </div><!--// .yui-gf -->
 
+                            <% if data.resume.education? %>
                             <div class="yui-gf">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.education %></h2>
+                                </div>
+                                <div class="yui-u">
+                                    <% data.resume.education.each do |edu| %>
+                                        <h2><%= edu.name %></h2>
+                                        <h3><%= edu.title %> &nbsp; <strong><%= edu.grade %></strong> </h3>
+                                    <% end %>
+                                </div>
+                            </div><!--// .yui-gf -->
+                            <% end %>
 
+                            <% if data.resume.languages? %>
+                            <div class="yui-gf">
                                 <div class="yui-u first">
                                     <h2><%= data.resume.headers.languages %></h2>
                                 </div><!--// .yui-u -->
@@ -117,8 +131,9 @@
                                     <% end %>
                                 </div><!--// .yui-u -->
                             </div><!--// .yui-gf -->
+                            <% end %>
 
-                            <div class="yui-gf">
+                            <div class="yui-gf last">
 
                                 <div class="yui-u first">
                                     <h2><%= data.resume.headers.links %></h2>

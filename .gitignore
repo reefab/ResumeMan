@@ -16,3 +16,4 @@
 /tmp/
 /Gemfile.lock
 /.ruby-version
+/vendor

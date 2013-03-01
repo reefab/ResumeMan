@@ -4,6 +4,7 @@ headers:
     languages: Languages
     techs: Technical
     jobs: Experiences
+    education: Education
     links: Links
     download: Download PDF
 
@@ -71,3 +72,8 @@ jobs:
           Compellingly morph extensive niche markets with mission-critical ideas. 
 
           Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.
+
+education:
+    - name: Indiana University - Bloomington, Indiana
+      title: Dual Major, Economics and English
+      grade: 4.0 GPA

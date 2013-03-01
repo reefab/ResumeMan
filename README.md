@@ -22,8 +22,8 @@ See the result: [sample resume](http://reefab.github.com/ResumeMan/).
 
     git clone https://github.com/reefab/ResumeMan.git
     cd ResumeMan
-    gem install bundler
-    bundle install
+    sudo gem install bundler
+    bundle install --path vendor/bundle
 
 If using Pow:
 
@@ -31,7 +31,7 @@ If using Pow:
 
 Otherwise:
 
-    middleman server
+    bundle exec middleman
 
 ## In practice
 
@@ -43,11 +43,11 @@ All keys with a `desc: |` header can be Markdown formated.
 You can preview your changes via `http://resume.dev/` if using Pow or
 `http://localhost:4567/` otherwise.
 
-    middleman build
+    bundle exec middleman build
 
 Build the static version of your resume, it'll also create the PDF version.
 
-    middleman deploy
+    bundle exec middleman deploy
 
 Upload it to a github page. Your resume will be available at `http://yourusername.github.com/resume`.
 
