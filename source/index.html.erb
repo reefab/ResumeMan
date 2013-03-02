@@ -108,10 +108,12 @@
                                     <h2><%= data.resume.headers.education %></h2>
                                 </div>
                                 <div class="yui-u">
+                                    <div class="no-page-breaker">
                                     <% data.resume.education.each do |edu| %>
                                         <h2><%= edu.name %></h2>
                                         <h3><%= edu.title %> &nbsp; <strong><%= edu.grade %></strong> </h3>
                                     <% end %>
+                                    </div>
                                 </div>
                             </div><!--// .yui-gf -->
                             <% end %>
@@ -140,7 +142,7 @@
                                 </div><!--// .yui-u -->
 
                                 <div class="yui-u">
-                                    <ul class="talent">
+                                    <ul class="talent no-page-breaker">
                                     <% data.resume.links.each do |link| %>
                                         <li><%= link_to link.name, link.url %></li>
                                     <% end %>
