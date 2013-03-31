@@ -18,24 +18,10 @@ It has the following features:
 
 See the result: [sample resume](http://reefab.github.com/ResumeMan/).
 
-## Installation
-
-    git clone https://github.com/reefab/ResumeMan.git
-    cd ResumeMan
-    sudo gem install bundler
-    bundle install --path vendor/bundle
-
-If using Pow:
-
-    ln -s `pwd`/. ~/.pow/resume
-
-Otherwise:
-
-    bundle exec middleman
-
 ## In practice
 
-Fork this project and name it "resume" for example.
+Fork this project and name it "resume" for example. 
+Follow the installation instructions below.
 
 To create/update your resume, you'll just need to edit the `data/resume.yml` file.
 All keys with a `desc: |` header can be Markdown formated.
@@ -50,6 +36,32 @@ Build the static version of your resume, it'll also create the PDF version.
     bundle exec middleman deploy
 
 Upload it to a github page. Your resume will be available at `http://yourusername.github.com/resume`.
+
+## Installation
+
+If you forked to your own repo:
+
+    git clone https://github.com/<yourusername>/resume.git
+    cd resume
+
+Otherwise:
+
+    git clone https://github.com/reefab/ResumeMan.git
+    cd ResumeMan
+
+Install all dependencies:
+
+    sudo gem install bundler
+    bundle install --path vendor/bundle
+
+If using Pow, this will setup a previewing server that will be available at
+http://resume.dev/
+
+    ln -s `pwd`/. ~/.pow/resume
+
+Otherwise, you'll have to have the previewing server manually:
+
+    bundle exec middleman
 
 ### Note on PDF generation
 
