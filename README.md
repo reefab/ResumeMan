@@ -20,14 +20,28 @@ See the result: [sample resume](http://reefab.github.com/ResumeMan/).
 
 ## In practice
 
-Fork this project and name it "resume" for example. 
+Fork this project and name it `resume` for example. 
 Follow the installation instructions below.
 
-To create/update your resume, you'll just need to edit the `data/resume.yml` file.
+To create/update your resume, you'll just need to edit the [`data/resume.yml`](https://github.com/reefab/ResumeMan/blob/master/data/resume.yml) file.
 All keys with a `desc: |` header can be Markdown formated.
 
-You can preview your changes via `http://resume.dev/` if using Pow or
-`http://localhost:4567/` otherwise.
+Here is what it looks lile:
+
+```yaml
+info:
+    name: Jonathan Doe
+    shortdesc: Web Designer, Director
+    email: example@example.com
+    phone: (313) - 867-5309
+    address:
+        - 123 Fake Street
+        - City, Country
+    desc: |
+        You can put Markdown in here [like this](http://daringfireball.net/projects/markdown/).
+```
+
+You can preview your changes via `http://resume.dev/` if using Pow or `http://localhost:4567/` otherwise.
 
     bundle exec middleman build
 
