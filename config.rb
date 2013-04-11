@@ -53,6 +53,18 @@ page "index.html", :layout => false
 #   end
 # end
 
+helpers do
+    def display_date(date)
+        # Change this if you prefer another date format: 
+        # http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html#method-i-strftime
+        if date.is_a?(Date)
+            date.strftime("%e %B %Y")
+        else
+            date
+        end
+    end
+end
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'

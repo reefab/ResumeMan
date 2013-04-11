@@ -13,6 +13,7 @@ It has the following features:
  * config.ru file included for use with [Pow](http://pow.cx).
  * Automatic PDF generation using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/).
  * Turnkey deployment to a `http://yourusername.github.com/resume` page no configuration necessary. 
+ * [hResume](http://microformats.org/wiki/hResume) microformat support
 
 ## Preview
 
@@ -26,7 +27,7 @@ Follow the installation instructions below.
 To create/update your resume, you'll just need to edit the [`data/resume.yml`](https://github.com/reefab/ResumeMan/blob/master/data/resume.yml) file.
 All keys with a `desc: |` header can be Markdown formated.
 
-Here is what it looks lile:
+Here is what it looks like:
 
 ```yaml
 info:

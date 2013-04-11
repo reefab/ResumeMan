@@ -7,35 +7,48 @@
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     
-    <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= data.resume.info.name || "Resume" %></title>
     
     <%= stylesheet_link_tag "reset-fonts-grids", "resume" , :media => "all"%>
     <%= stylesheet_link_tag "print" , :media => "print"%>
   </head>
   
-  <body class="<%= page_classes %>">
+  <body class="<%= page_classes %> hresume">
         <div id="doc2" class="yui-t7">
             <div id="inner">
 
                 <div id="hd">
+                    <address class="vcard">
                     <div class="yui-gc">
                         <div class="yui-u first">
-                            <h1><%= data.resume.info.name %></h1>
+                            <h1 class="fn"><%= data.resume.info.name %></h1>
                             <h2><%= data.resume.info.shortdesc %></h2>
                         </div>
 
                         <div class="yui-u">
                             <div class="contact-info">
                                 <h3><a id="pdf" href="resume.pdf"><%= data.resume.headers.download %></a></h3>
-                                <h3><a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></h3>
-                                <h3><%= data.resume.info.phone %></h3>
-                                <% data.resume.info.address.each do |line| %>
-                                    <h3><%= line %></h3>
+                                <h3><a class="email" href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></h3>
+                                <% if data.resume.info.homepage? %>
+                                    <h3 class="url"><%= data.resume.info.homepage %></h3>
                                 <% end %>
+                                <% if data.resume.info.phone %>
+                                    <h3 class="tel"><%= data.resume.info.phone %></h3>
+                                <% end %>
+                                <span class="adr">
+                                    <h3>
+                                        <span class="street-address"><%= data.resume.info.address.street %></span>
+                                        <span class="locality"><%= data.resume.info.address.city %></span>
+                                    </h3>
+                                    <h3>
+                                        <span class="region"><%= data.resume.info.address.region %></span>
+                                        <span class="postal-code"><%= data.resume.info.address.postal_code %></span>
+                                        <span class="country"><%= data.resume.info.address.country %></span>
+                                    </h3>
                             </div><!--// .contact-info -->
                         </div>
                     </div><!--// .yui-gc -->
+                    </address>
                 </div><!--// hd -->
 
                 <div id="bd">
@@ -47,7 +60,7 @@
                                     <h2><%= data.resume.headers.profile %></h2>
                                 </div>
                                 <div class="yui-u">
-                                    <p><%= data.resume.info.desc %></p>
+                                    <p class="summary"><%= Maruku.new(data.resume.info.desc).to_html %></p>
                                 </div>
                             </div><!--// .yui-gf -->
 
@@ -75,7 +88,7 @@
                                             <ul class="soup">
                                         <% end %>
 
-                                        <li><%= skill %></li>
+                                        <li class="skill" rel="tag"><%= skill %></li>
 
                                         <% if (index + 1) % 3 == 0 %>
                                             </ul>
@@ -85,17 +98,19 @@
                             </div><!--// .yui-gf-->
 
                             <div class="yui-gf">
-
                                 <div class="yui-u first">
                                     <h2><%= data.resume.headers.jobs %></h2>
                                 </div><!--// .yui-u -->
 
-                                <div class="yui-u">
+                                <div class="yui-u vcalendar">
                                     <% data.resume.jobs.each do |job| %>
-                                    <div class="job no-page-breaker">
-                                        <h2><%= job.company %></h2>
-                                        <h3><%= job.title %></h3>
-                                        <h4><%= job.dates %></h4>
+                                    <div class="job no-page-breaker experience vevent">
+                                        <h2 class="location"><%= job.company %></h2>
+                                        <h3 class="summary"><%= job.title %></h3>
+                                        <h4>
+                                            <abbr class="dtstart" title="<%= job.dates.start %>"><%= display_date(job.dates.start) %></abbr> -
+                                            <abbr class="dtend" title="<%= job.dates.end %>"><%= display_date(job.dates.end) %></abbr>
+                                        </h4>
                                         <p><%= Maruku.new(job.desc).to_html %></p>
                                     </div>
                                     <% end %>
@@ -107,11 +122,26 @@
                                 <div class="yui-u first">
                                     <h2><%= data.resume.headers.education %></h2>
                                 </div>
-                                <div class="yui-u">
+                                <div class="yui-u" class="vcalendar">
                                     <div class="no-page-breaker">
                                     <% data.resume.education.each do |edu| %>
-                                        <h2><%= edu.name %></h2>
-                                        <h3><%= edu.title %> &nbsp; <strong><%= edu.grade %></strong> </h3>
+                                        <span class="education vevent summary vcard">
+                                            <h2 class="fn org"><%= edu.name %>, 
+                                                <span class="adr">
+                                                    <span class="locality"><%= edu.city %></span> - <span class="region"><%= edu.region %></span>
+                                                    <% if edu.country? %>
+                                                        <span class="country"> <%= edu.country %></span>
+                                                    <% end %>
+                                                </span>
+                                            </h2>
+                                            <h4>
+                                                <abbr class="dtstart" title="<%= edu.dates.start %>"><%= display_date(edu.dates.start) %></abbr>
+                                                <% if edu.dates.end? %>
+                                                    - <abbr class="dtend" title="<%= edu.dates.end %>"><%= display_date(edu.dates.end) %></abbr>
+                                                <% end %>
+                                            </h4>
+                                            <h3><%= edu.title %> &nbsp; <strong><%= edu.grade if edu.grade? %></strong> </h3>
+                                        </span>
                                     <% end %>
                                     </div>
                                 </div>
@@ -155,7 +185,7 @@
                 </div><!--// bd -->
 
                 <div id="ft">
-                    <p><%= data.resume.info.name %> &mdash; <a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a> &mdash; <%= data.resume.info.phone %></p>
+                    <p><%= data.resume.info.name %> &mdash; <a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a> &mdash; <%= data.resume.info.phone  if data.resume.info.phone? %></p>
                 </div><!--// footer -->
 
             </div><!-- // inner -->

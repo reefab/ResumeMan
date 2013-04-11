@@ -9,13 +9,17 @@ headers:
     download: Download PDF
 
 info:
-    name: Jonathan Doe
-    shortdesc: Web Designer, Director
+    name: Full Name
+    shortdesc: Job Title
     email: example@example.com
-    phone: (313) - 867-5309
+    phone: (313) - 867-5309 # not mandatory
+    homepage: http://example.com/ # not mandatory
     address:
-        - 123 Fake Street
-        - City, Country
+        street: 123 Fake Street
+        city: City
+        region: Region # not mandatory
+        postal_code: 12345 # not mandatory
+        country: Country # not mandatory
     desc: |
         Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.
 
@@ -28,9 +32,9 @@ skills:
       desc: Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.
 
 languages:
-    - name: English
+    - name: Gibberish
       level: Native language
-    - name: Spanish
+    - name: Manager Speak
       level: Fluent
 
 alphabetsoup:
@@ -54,8 +58,10 @@ links:
 
 jobs:
     - title: Senior Interface Designer
-      company: Facebook
-      dates: 2005 - 2007
+      company: Famous Company
+      dates: 
+          start: 2007-01-02
+          end: Present
       desc: |
           Intrinsicly enable optimal core competencies through corporate relationships. 
 
@@ -64,8 +70,10 @@ jobs:
           Conveniently initiate virtual paradigms and top-line convergence.
 
     - title: Junior Interface Designer
-      company: Apple Inc.
-      dates: 2005 - 2007
+      company: Technocorp
+      dates: 
+          start: 2005-01-01
+          end: 2007-01-01
       desc: |
           Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. 
 
@@ -73,7 +81,13 @@ jobs:
 
           Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.
 
-education:
-    - name: Indiana University - Bloomington, Indiana
+education: # this section is not mandatory
+    - name: Indiana University
+      city: Bloomington
+      region: Indiana
+      country: USA # not mandatory
+      dates:
+        start: 2001-01-01
+        end: 2010-01-01 # not mandatory
       title: Dual Major, Economics and English
-      grade: 4.0 GPA
+      grade: 4.0 GPA # not mandatory
