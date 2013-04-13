@@ -11,7 +11,7 @@ It has the following features:
  * Default template included: [SRT](http://sampleresumetemplate.net/).
  * You can preview your changes with Middleman's included server.
  * config.ru file included for use with [Pow](http://pow.cx).
- * Automatic PDF generation using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/).
+ * Automatic PDF generation using [wkpdf](http://plessl.github.io/wkpdf/) (OS X) or  [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) (other platforms).
  * Turnkey deployment to a `http://yourusername.github.com/resume` page no configuration necessary. 
  * [hResume](http://microformats.org/wiki/hResume) microformat support
 
@@ -80,6 +80,8 @@ Otherwise, you'll have to have the previewing server manually:
 
 ### Note on PDF generation
 
-Wkhtmltopdf doesn't have the best PDF rendering. Manually
-exporting a PDF version from Safari/Chrome might have a better result
+On OS X, wkpdf is used. It has a PDF output comparable to Safari and is
+perfectly adequate.
+
+On the other hand, for other platforms Wkhtmltopdf doesn't have the best PDF rendering. Manually exporting a PDF version from Chrome might have a better result
 especially for page breaks.
