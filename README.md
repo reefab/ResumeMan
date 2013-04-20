@@ -54,6 +54,8 @@ Upload it to a github page. Your resume will be available at `http://yourusernam
 
 ## Installation
 
+**Note**: if you are on OS X and using rvm/rbenv, use the system Ruby. Wkpdf depends on Rubycocoa and works best with the system provided Ruby.
+
 If you forked to your own repo:
 
     git clone https://github.com/<yourusername>/resume.git
