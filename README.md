@@ -76,7 +76,7 @@ http://resume.dev/
 
     ln -s `pwd`/. ~/.pow/resume
 
-Otherwise, you'll have to have the previewing server manually:
+Otherwise, you'll have to launch the previewing server manually:
 
     bundle exec middleman
 
