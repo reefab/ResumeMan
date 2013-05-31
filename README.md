@@ -1,6 +1,6 @@
 # Resume Man
 
-Resume Man is an HTML resume builder made in Ruby with [Middleman](http://middlemanapp.com/).
+Resume Man is an HTML and PDF resume builder made in Ruby with [Middleman](http://middlemanapp.com/).
 
 It has the following features:
 
