@@ -3,7 +3,8 @@ module PdfMaker
         def registered(app)
             app.after_build do |builder|
                 begin
-                    if (/darwin/ =~ RUBY_PLATFORM) != nil # For OS X with wkpdf
+                    if (/darwin/ =~ RUBY_PLATFORM) and !(/darwin13/ =~ RUBY_PLATFORM) 
+                        # For OS X < 10.9 with wkpdf
                         system('wkpdf --source build/index.html --stylesheet-media print --output build/resume.pdf')
                         if $?.exitstatus != 0
                             raise 'wkpdf failed to generate pdf'
@@ -17,8 +18,8 @@ module PdfMaker
                                     :margin_left => 0,
                                     :margin_right => 0,
                                     :disable_smart_shrinking => true,
-                                    :dpi => 96,
-                                    :print_media_type => true)
+                                    :print_media_type => true,
+                                    :dpi => 96)
 
                         file = kit.to_file('build/resume.pdf')
                     end

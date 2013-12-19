@@ -80,8 +80,10 @@ Otherwise, you'll have to have the previewing server manually:
 
 ### Note on PDF generation
 
-On OS X, wkpdf is used. It has a PDF output comparable to Safari and is
-perfectly adequate.
+On OS X, wkpdf is used. It has a PDF output comparable to Safari and is perfectly adequate.
+
+**NOTE**: wkpdf is not supported on OS X Mavericks yet. For now, if you are
+using 10.9, wkhtmltopdf is going to be used.
 
 On the other hand, for other platforms Wkhtmltopdf doesn't have the best PDF rendering. Manually exporting a PDF version from Chrome might have a better result
 especially for page breaks.
