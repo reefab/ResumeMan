@@ -1,6 +1,6 @@
 # Resume Man
 
-Resume Man is an HTML resume builder made in Ruby with [Middleman](http://middlemanapp.com/).
+Resume Man is an HTML and PDF resume builder made in Ruby with [Middleman](http://middlemanapp.com/).
 
 It has the following features:
 
@@ -54,6 +54,8 @@ Upload it to a github page. Your resume will be available at `http://yourusernam
 
 ## Installation
 
+**Note**: if you are on OS X and using rvm/rbenv, use the system Ruby. Wkpdf depends on Rubycocoa and works best with the system provided Ruby.
+
 If you forked to your own repo:
 
     git clone https://github.com/<yourusername>/resume.git
@@ -74,7 +76,7 @@ http://resume.dev/
 
     ln -s `pwd`/. ~/.pow/resume
 
-Otherwise, you'll have to have the previewing server manually:
+Otherwise, you'll have to launch the previewing server manually:
 
     bundle exec middleman
 
