@@ -7,9 +7,11 @@ headers:
     education: Education
     links: Links
     download: Download PDF
+    age: y/o
 
 info:
     name: Full Name
+    # dob: 1980-01-01 # not mandatory
     shortdesc: Job Title
     email: example@example.com
     phone: (313) - 867-5309 # not mandatory

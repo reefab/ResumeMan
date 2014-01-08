@@ -65,6 +65,13 @@ helpers do
     end
 end
 
+helpers do
+    def display_age(birthday)
+        now = Date.today
+        now.year - birthday.year - (Date.new(now.year, birthday.month, birthday.day) > now ? 1 : 0)
+    end
+end
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'

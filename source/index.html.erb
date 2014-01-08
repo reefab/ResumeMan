@@ -23,6 +23,9 @@
                         <div class="yui-u first">
                             <h1 class="fn"><%= data.resume.info.name %></h1>
                             <h2><%= data.resume.info.shortdesc %></h2>
+                            <% if data.resume.info.dob? and data.resume.headers.age? %>
+                                <h3 class="age"><%= display_age(data.resume.info.dob)%>&nbsp;<%= data.resume.headers.age %></h3>
+                            <% end %>
                         </div>
 
                         <div class="yui-u">
