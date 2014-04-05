@@ -8,6 +8,7 @@ headers:
     links: Links
     download: Download PDF
     age: y/o
+    projects: Projects
 
 info:
     name: Full Name
@@ -93,3 +94,15 @@ education: # this section is not mandatory
         end: 2010-01-01 # not mandatory
       title: Dual Major, Economics and English
       grade: 4.0 GPA # not mandatory
+
+projects: # this section is not mandatory
+    - name: ResumeMan
+      description: Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
+      dates: # not mandatory
+        start: 2013-02-18
+        end: 2014-04-05 # not mandatory
+      location: # not mandatory
+        city: Florence
+        region: Tuscany
+        country: Italy # not mandatory
+
