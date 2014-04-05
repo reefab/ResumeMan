@@ -120,6 +120,40 @@
                                 </div><!--// .yui-u -->
                             </div><!--// .yui-gf -->
 
+                            <% if data.resume.projects? %>
+                            <div class="yui-gf">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.projects %></h2>
+                                </div>
+                                <div class="yui-u" class="vcalendar">
+                                    <div class="no-page-breaker">
+                                    <% data.resume.projects.each do |project| %>
+                                        <span class="projects vevent summary vcard">
+                                            <h2 class="fn org"><%= project.name %></h2>
+                                            <% if project.dates? %>
+                                            <h4>
+                                                <abbr class="dtstart" title="<%= project.dates.start %>"><%= display_date(project.dates.start) %></abbr>
+                                                <% if project.dates.end? %>
+                                                    - <abbr class="dtend" title="<%= project.dates.end %>"><%= display_date(project.dates.end) %></abbr>
+                                                <% end %>
+                                            </h4>
+                                            <% end %>
+                                            <% if project.location? %>
+                                            <span class="adr">
+                                                <span class="locality"><%= project.location.city %></span> - <span class="region"><%= project.location.region %></span>
+                                                <% if project.location.country? %>
+                                                    <span class="country"> <%= project.location.country %></span>
+                                                <% end %>
+                                            </span>
+                                            <% end %>
+                                        </span>
+                                        <p><%= Maruku.new(project.description).to_html %></p>
+                                    <% end %>
+                                    </div>
+                                </div>
+                            </div><!--// .yui-gf -->
+                            <% end %>
+
                             <% if data.resume.education? %>
                             <div class="yui-gf">
                                 <div class="yui-u first">
