@@ -71,6 +71,8 @@ a#pdf:hover { background: #222; }
 .soup { width: 19%; float: left }
 .talent h2 { margin-bottom: 6px; }
 
+.project { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+
 #srt-ttab { margin-bottom: 100px; text-align: center;  }
 #srt-ttab img.last { margin-top: 20px }
 

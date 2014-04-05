@@ -128,7 +128,7 @@
                                 <div class="yui-u" class="vcalendar">
                                     <div class="no-page-breaker">
                                     <% data.resume.projects.each do |project| %>
-                                        <span class="projects vevent summary vcard">
+                                        <div class="project vevent summary vcard">
                                             <h2 class="fn org"><%= project.name %></h2>
                                             <% if project.dates? %>
                                             <h4>
@@ -146,8 +146,8 @@
                                                 <% end %>
                                             </span>
                                             <% end %>
-                                        </span>
-                                        <p><%= Maruku.new(project.description).to_html %></p>
+                                            <p><%= Maruku.new(project.description).to_html %></p>
+                                        </div>
                                     <% end %>
                                     </div>
                                 </div>
