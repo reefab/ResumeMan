@@ -33,7 +33,7 @@
                                 <h3><a id="pdf" href="resume.pdf"><%= data.resume.headers.download %></a></h3>
                                 <h3><a class="email" href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></h3>
                                 <% if data.resume.info.homepage? %>
-                                    <h3 class="url"><%= data.resume.info.homepage %></h3>
+                                    <h3 class="url"><a href=<%= data.resume.info.homepage %> target=_blank><%= data.resume.info.homepage %></a></h3>
                                 <% end %>
                                 <% if data.resume.info.phone %>
                                     <h3 class="tel"><%= data.resume.info.phone %></h3>
@@ -41,13 +41,16 @@
                                 <span class="adr">
                                     <h3>
                                         <span class="street-address"><%= data.resume.info.address.street %></span>
-                                        <span class="locality"><%= data.resume.info.address.city %></span>
-                                    </h3>
+		                                </h3>		
                                     <h3>
+																			  <span class="locality"><%= data.resume.info.address.city %></span>, 
                                         <span class="region"><%= data.resume.info.address.region %></span>
                                         <span class="postal-code"><%= data.resume.info.address.postal_code %></span>
-                                        <span class="country"><%= data.resume.info.address.country %></span>
+                                        
                                     </h3>
+																		<h3>
+																			  <span class="country"><%= data.resume.info.address.country %></span>
+																		</h3>
                             </div><!--// .contact-info -->
                         </div>
                     </div><!--// .yui-gc -->
@@ -108,7 +111,11 @@
                                 <div class="yui-u vcalendar">
                                     <% data.resume.jobs.each do |job| %>
                                     <div class="job no-page-breaker experience vevent">
-                                        <h2 class="location"><%= job.company %></h2>
+																			  <% if job.url? %>
+                                          <h2 class="location"><a href="<%= job.url%>" target=_blank><%= job.company %></a></h2>
+																				<% else %>
+																				  <h2 class="location"><%= job.company %></h2>
+																				<% end %>
                                         <h3 class="summary"><%= job.title %></h3>
                                         <h4>
                                             <abbr class="dtstart" title="<%= job.dates.start %>"><%= display_date(job.dates.start) %></abbr> -
@@ -129,7 +136,11 @@
                                     <div class="no-page-breaker">
                                     <% data.resume.projects.each do |project| %>
                                         <div class="project vevent summary vcard">
-                                            <h2 class="fn org"><%= project.name %></h2>
+																					  <% if project.url? %>
+																						  <h2 class="fn org"><a href="<%= project.url %>" target=_blank><%= project.name %></a></h2>
+																						<% else %>
+																						  <h2 class="fn org"><%= project.name %></h2>
+																						<% end %>
                                             <% if project.dates? %>
                                             <h4>
                                                 <abbr class="dtstart" title="<%= project.dates.start %>"><%= display_date(project.dates.start) %></abbr>
@@ -163,9 +174,13 @@
                                     <div class="no-page-breaker">
                                     <% data.resume.education.each do |edu| %>
                                         <span class="education vevent summary vcard">
-                                            <h2 class="fn org"><%= edu.name %>, 
+																					  <% if edu.url? %>
+																						  <h2 class="fn org"><a href="<%= edu.url %>"><%= edu.name %></a>, 
+																						<% else %>
+																						  <h2 class="fn org"><%= edu.name %>, 
+																						<% end %>
                                                 <span class="adr">
-                                                    <span class="locality"><%= edu.city %></span> - <span class="region"><%= edu.region %></span>
+                                                    <span class="locality"><%= edu.city %></span>, <span class="region"><%= edu.region %></span>
                                                     <% if edu.country? %>
                                                         <span class="country"> <%= edu.country %></span>
                                                     <% end %>
