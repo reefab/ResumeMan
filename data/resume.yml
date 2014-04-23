@@ -11,98 +11,109 @@ headers:
     projects: Projects
 
 info:
-    name: Full Name
+    name: Andrew vonderLuft
     # dob: 1980-01-01 # not mandatory
-    shortdesc: Job Title
-    email: example@example.com
-    phone: (313) - 867-5309 # not mandatory
-    homepage: http://example.com/ # not mandatory
+    shortdesc: Software Developer / System Administrator
+    email: avonderluft@avlux.net
+    phone: 360.600.9962 # not mandatory
+    # homepage: https://github.com/avonderluft # not mandatory
     address:
-        street: 123 Fake Street
-        city: City
-        region: Region # not mandatory
-        postal_code: 12345 # not mandatory
-        country: Country # not mandatory
+        street: P.O. Box 1574
+        city: Battle Ground
+        region: WA # not mandatory
+        postal_code: 98604-1574 # not mandatory
+        country: U.S.A. # not mandatory
     desc: |
-        Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.
+        Experienced Software Developer seeking a useful position in a healthy and productive endeavor
 
 skills:
-    - name: Web design
-      desc: Assertively exploit wireless initiatives rather than synergistic core competencies.
-    - name: Interface Design
-      desc: Credibly streamline mission-critical value with multifunctional functionalities.
-    - name: Project Direction
-      desc: Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.
-
+    - name: Software Writer
+      desc: Creating beautiful apps that make their users happy, and make me happy as well
+    - name: Sys Admin
+      desc: Configuring sytems and servers for efficient deployment of beautiful apps
+    - name: Musician
+      desc: Playing Bass, 12-string, Keyboard, et al. with others for the pure beauty of it 
 languages:
-    - name: Gibberish
+    - name: English
       level: Native language
-    - name: Manager Speak
-      level: Fluent
+    - name: Classical Greek
+      level: Competent reader
 
-alphabetsoup:
-    - XHTML
+alphabetsoup:   # groups of three
+    - Ruby
+    - Rails
+    - RadiantCMS
+    - XML/HTML
     - CSS
-    - Javascript
-
-    - Jquery
-    - PHP
-    - CVS / Subversion
-
-    - OS X
-    - Windows XP/Vista
-    - Linux
+    - Javascript		
+    - Linux, *nix
+    - System Admin
+    - DevOps
+    - SQL - MySQL
+    - SQLite
+    - PostgreSQL
+    - Git
+    - Subversion
+    - Shell Scripting
 
 links:
-    - name: homepage
-      url: http://example.com/
-    - name: Project Page
-      url: https://github.com/reefab/ResumeMan
+    - name: github
+      url: https://github.com/avonderluft
+    - name: rubygems
+      url: http://rubygems.org/profiles/avonderluft
+    - name: linkedin
+      url: http://www.linkedin.com/in/avonderluft
 
 jobs:
-    - title: Senior Interface Designer
-      company: Famous Company
+    - title: Senior Software Developer
+      company: Con-way, Inc.
+      url: http://www.con-way.com
       dates: 
-          start: 2007-01-02
+          start: 1996
           end: Present
       desc: |
-          Intrinsicly enable optimal core competencies through corporate relationships. 
+          Researches, designs and deploys web application development infrastructure
 
-          Phosfluorescently implement worldwide vortals and client-focused imperatives. 
+          Designs, develops and extends internal and external websites using Ruby, Rails, and RadiantCMS
 
-          Conveniently initiate virtual paradigms and top-line convergence.
+          Configures and manages Source Control Management using Subversion and Git
 
-    - title: Junior Interface Designer
-      company: Technocorp
+          Mentors I.T. staff in use of Ruby, Rails and related tools and technologies
+
+    - title: Principal
+      company: AVLUX Enterprises, LLC
+      url: https://avlux.net/
       dates: 
-          start: 2005-01-01
-          end: 2007-01-01
+          start: 2000
+          end: present
       desc: |
-          Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. 
+          Oversees operations for small home-grown hosting company, specializing in Git, Subversion and Rails
 
-          Compellingly morph extensive niche markets with mission-critical ideas. 
+          Completes systems and software setup and configuration
 
-          Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.
+          Provides customer support
 
 education: # this section is not mandatory
-    - name: Indiana University
-      city: Bloomington
-      region: Indiana
-      country: USA # not mandatory
+    - name: Reed College
+      url: http://reed.edu/
+      city: Portland
+      region: OR
+      country: U.S.A # not mandatory
       dates:
-        start: 2001-01-01
-        end: 2010-01-01 # not mandatory
-      title: Dual Major, Economics and English
-      grade: 4.0 GPA # not mandatory
+        start: 1977
+        end: 1981 # not mandatory
+      title: Classics
+      # grade: 4.0 GPA # not mandatory
 
 projects: # this section is not mandatory
-    - name: ResumeMan
-      description: Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
+    - name: RadiantCMS
+      url: http://radiantcms.org/
+      description: Radiant is a no-fluff, open source content management system designed for small teams.
       dates: # not mandatory
         start: 2013-02-18
-        end: 2014-04-05 # not mandatory
-      location: # not mandatory
-        city: Florence
-        region: Tuscany
-        country: Italy # not mandatory
+        end: present # not mandatory
+     # location: # not mandatory
+     #   city: Florence
+     #   region: Tuscany
+     #   country: Italy # not mandatory
 
