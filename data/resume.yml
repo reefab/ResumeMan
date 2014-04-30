@@ -54,38 +54,40 @@ alphabetsoup:
     - Linux
 
 links:
-    - name: homepage
+    - name: Link1
       url: http://example.com/
-    - name: Project Page
-      url: https://github.com/reefab/ResumeMan
+    - name: Another link
+      url: https://example.com/
 
 jobs:
     - title: Senior Interface Designer
       company: Famous Company
-      dates: 
+      url: http://example.com/
+      dates:
           start: 2007-01-02
           end: Present
       desc: |
-          Intrinsicly enable optimal core competencies through corporate relationships. 
+          Intrinsicly enable optimal core competencies through corporate relationships.
 
-          Phosfluorescently implement worldwide vortals and client-focused imperatives. 
+          Phosfluorescently implement worldwide vortals and client-focused imperatives.
 
           Conveniently initiate virtual paradigms and top-line convergence.
 
     - title: Junior Interface Designer
       company: Technocorp
-      dates: 
+      dates:
           start: 2005-01-01
           end: 2007-01-01
       desc: |
-          Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. 
+          Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment.
 
-          Compellingly morph extensive niche markets with mission-critical ideas. 
+          Compellingly morph extensive niche markets with mission-critical ideas.
 
           Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits.
 
 education: # this section is not mandatory
     - name: Indiana University
+      url: http://indiana.edu # not mandatory
       city: Bloomington
       region: Indiana
       country: USA # not mandatory
@@ -98,6 +100,7 @@ education: # this section is not mandatory
 projects: # this section is not mandatory
     - name: ResumeMan
       description: Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
+      url: https://github.com/reefab/ResumeMan # not mandatory
       dates: # not mandatory
         start: 2013-02-18
         end: 2014-04-05 # not mandatory

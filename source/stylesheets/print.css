@@ -9,3 +9,7 @@ a#pdf {
 #hd h2 {
     letter-spacing: 0.03em;
 }
+
+a:not(.donotexpand):link:after, a:not(.donotexpand):visited:after {
+  content: " " attr(href) " ";
+}
