@@ -1,3 +1,7 @@
+#inner {
+    background: #fff;
+}
+
 a#pdf {
     display: none;
 }
@@ -11,5 +15,9 @@ a#pdf {
 }
 
 a:not(.donotexpand):link:after, a:not(.donotexpand):visited:after {
-  content: " " attr(href) " ";
+  content: " - " attr(href) " ";
+}
+
+div.no-page-breaker {
+    page-break-inside: avoid;
 }

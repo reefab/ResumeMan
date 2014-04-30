@@ -3,30 +3,22 @@ module PdfMaker
         def registered(app)
             app.after_build do |builder|
                 begin
-                    if (/darwin/ =~ RUBY_PLATFORM) and !(/darwin13/ =~ RUBY_PLATFORM) 
-                        # For OS X < 10.9 with wkpdf
-                        system('wkpdf --source build/index.html --stylesheet-media print --output build/resume.pdf')
-                        if $?.exitstatus != 0
-                            raise 'wkpdf failed to generate pdf'
-                        end
-                    else # For linux/others with PDFKit and wkhtmlpdf
-                        require 'pdfkit'
+                    require 'pdfkit'
 
-                        kit = PDFKit.new(File.new('build/index.html'),
-                                    :margin_top => 0,
-                                    :margin_bottom => 0,
-                                    :margin_left => 0,
-                                    :margin_right => 0,
-                                    :disable_smart_shrinking => true,
-                                    :print_media_type => true,
-                                    :dpi => 96)
+                    kit = PDFKit.new(File.new('build/index.html'),
+                                :margin_top => 10,
+                                :margin_bottom => 0,
+                                :margin_left => 0,
+                                :margin_right => 0,
+                                # :disable_smart_shrinking => true,
+                                :print_media_type => true,
+                                :dpi => 96)
 
-                        file = kit.to_file('build/resume.pdf')
-                    end
+                    file = kit.to_file('build/resume.pdf')
 
                     rescue Exception =>e
                         builder.say_status "PDF Maker",  "Error: #{e.message}", Thor::Shell::Color::RED
-                        Raise 
+                        raise
                     end
                     builder.say_status "PDF Maker",  "PDF file available at build/resume.pdf"
                 end

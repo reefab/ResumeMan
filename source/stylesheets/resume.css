@@ -80,6 +80,3 @@ a#pdf:hover { background: #222; }
 .yui-gf .yui-u{width:80.2%;}
 .yui-gf div.first{width:12.3%;}
 
-div.no-page-breaker {
-    page-break-inside: avoid;
-}

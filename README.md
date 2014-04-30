@@ -11,9 +11,9 @@ It has the following features:
  * Default template included: [SRT](http://sampleresumetemplate.net/).
  * You can preview your changes with Middleman's included server.
  * config.ru file included for use with [Pow](http://pow.cx).
- * Automatic PDF generation using [wkpdf](http://plessl.github.io/wkpdf/) (OS X) or  [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) (other platforms).
- * Turnkey deployment to a `http://yourusername.github.com/resume` page no configuration necessary. 
- * [hResume](http://microformats.org/wiki/hResume) microformat support
+ * Automatic PDF generation using [wkhtmltopdf](http://wkhtmltopdf.org).
+ * Turnkey deployment to a `http://yourusername.github.com/resume` page with no configuration necessary. 
+ * [hResume](http://microformats.org/wiki/hResume) microformat support.
 
 ## Preview
 
@@ -54,8 +54,6 @@ Upload it to a github page. Your resume will be available at `http://yourusernam
 
 ## Installation
 
-**Note**: if you are on OS X and using rvm/rbenv, use the system Ruby. Wkpdf depends on Rubycocoa and works best with the system provided Ruby.
-
 If you forked to your own repo:
 
     git clone https://github.com/<yourusername>/resume.git
@@ -79,13 +77,3 @@ http://resume.dev/
 Otherwise, you'll have to launch the previewing server manually:
 
     bundle exec middleman
-
-### Note on PDF generation
-
-On OS X, wkpdf is used. It has a PDF output comparable to Safari and is perfectly adequate.
-
-**NOTE**: wkpdf is not supported on OS X Mavericks yet. For now, if you are
-using 10.9, wkhtmltopdf is going to be used.
-
-On the other hand, for other platforms Wkhtmltopdf doesn't have the best PDF rendering. Manually exporting a PDF version from Chrome might have a better result
-especially for page breaks.
