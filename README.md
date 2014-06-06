@@ -69,6 +69,11 @@ Install all dependencies:
     sudo gem install bundler
     bundle install --path vendor/bundle
 
+On Linux, don't forget to install the dev packages beforehand (Ubuntu 12.04
+example):
+
+    sudo apt-get install build-essential ruby1.9.1-dev
+
 If using Pow, this will setup a previewing server that will be available at
 http://resume.dev/
 
