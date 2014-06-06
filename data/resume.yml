@@ -99,7 +99,8 @@ education: # this section is not mandatory
 
 projects: # this section is not mandatory
     - name: ResumeMan
-      description: Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
+      desc: |
+          Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
       url: https://github.com/reefab/ResumeMan # not mandatory
       dates: # not mandatory
         start: 2013-02-18
