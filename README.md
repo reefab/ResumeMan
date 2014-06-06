@@ -9,7 +9,8 @@ It has the following features:
  * Fork this project for maintening multiple versions of your resume in sync.
  * Markdown for formatting of the longer paragraphs.
  * Default template included: [SRT](http://sampleresumetemplate.net/).
- * You can preview your changes with Middleman's included server.
+ * You can preview your changes with Middleman's included server (with
+   livereload).
  * config.ru file included for use with [Pow](http://pow.cx).
  * Automatic PDF generation using [wkhtmltopdf](http://wkhtmltopdf.org).
  * Turnkey deployment to a `http://yourusername.github.com/resume` page with no configuration necessary. 
