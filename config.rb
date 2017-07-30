@@ -101,7 +101,7 @@ configure :build do
   # set :http_path, "/Content/images/"
 
   # Disable this if you don't want PDF generation
-  activate :pdfmaker
+  # activate :pdfmaker
 end
 
 activate :deploy do |deploy|
