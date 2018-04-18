@@ -1,0 +1,8 @@
+<div class="interests-container container-block">
+    <h2 class="container-block-title"><%= data.resume.headers.interests %></h2>
+    <ul class="list-unstyled interests-list">
+        <% data.resume.interests.each do |interest| %>
+            <li><%= interest %></li>
+        <% end %>
+    </ul>
+</div>

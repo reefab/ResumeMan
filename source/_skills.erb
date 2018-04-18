@@ -1,0 +1,14 @@
+<section class="skills-section section">
+    <h2 class="section-title"><i class="fa fa-rocket"></i><%= data.resume.headers.skills %></h2>
+    <div class="skillset">
+        <% data.resume.alphabetsoup.each do |skill| %>
+            <div class="item">
+                <h3 class="level-title"><%= skill %></h3>
+                <%# <div class="level-bar"> %>
+                <%#     <div class="level-bar-inner" data-level="98%"> %>
+                <%#     </div> %>
+                <%# </div> %>
+            </div>
+        <% end %>
+    </div>
+</section>

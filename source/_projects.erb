@@ -1,0 +1,32 @@
+<% if data.resume.projects? %>
+    <section class="section projects-section">
+        <h2 class="section-title"><i class="fa fa-archive"></i><%= data.resume.headers.projects %></h2>
+
+        <% data.resume.projects.each do |project| %>
+            <div class="item">
+            <% if project.url? %>
+              <span class="project-title fn url org"><a href="<%= project.url %>" target=_blank><%= project.name %></a></span>
+            <% else %>
+              <span class="project-title fn org"><%= project.name %></span>
+            <% end %>
+            <% if project.dates? %>
+            <span>
+                <abbr class="dtstart" title="<%= project.dates.start %>"><%= display_date(project.dates.start) %></abbr>
+                <% if project.dates.end? %>
+                    - <abbr class="dtend" title="<%= project.dates.end %>"><%= display_date(project.dates.end) %></abbr>
+                <% end %>
+            </span>
+            <% end %>
+            <% if project.location? %>
+            <span class="adr">
+                <span class="locality"><%= project.location.city %></span> - <span class="region"><%= project.location.region %></span>
+                <% if project.location.country? %>
+                    <span class="country"> <%= project.location.country %></span>
+                <% end %>
+            </span>
+            <% end %>
+            <span class="project-tagline"><%= Maruku.new(project.description).to_html %></span>
+            </div>
+        <% end %>
+    </section>
+<% end %>

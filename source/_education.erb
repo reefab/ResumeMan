@@ -1,0 +1,21 @@
+<% if data.resume.education? %>
+<div class="education-container container-block">
+    <h2 class="container-block-title"><%= data.resume.headers.education %></h2>
+    <% data.resume.education.each do |edu| %>
+        <div class="item">
+            <h4><%= edu.title %> &nbsp; <%= edu.grade if edu.grade? %></h4>
+            <% if edu.url? %>
+              <h5 class="meta fn url org"><a href="<%= edu.url %>"><%= edu.name %></a>,
+            <% else %>
+              <h5 class="meta fn org"><%= edu.name %>,
+            <% end %>
+            <div class="time">
+                <abbr class="dtstart" title="<%= edu.dates.start %>"><%= display_date(edu.dates.start) %></abbr>
+                <% if edu.dates.end? %>
+                    - <abbr class="dtend" title="<%= edu.dates.end %>"><%= display_date(edu.dates.end) %></abbr>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+<% end %>

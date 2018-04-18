@@ -9,6 +9,7 @@ headers:
     download: Download PDF
     age: y/o
     projects: Projects
+    interests: Interests
 
 info:
     name: Full Name
@@ -17,6 +18,9 @@ info:
     email: example@example.com
     phone: (313) - 867-5309 # not mandatory
     homepage: http://example.com/ # not mandatory
+    github: https://github.com/middleman # Not mandatory
+    linkedin: http://linkedin/ # not mandatory
+    twitter: http://twitter.com/ # not mandatory
     address:
         street: 123 Fake Street
         city: City
@@ -44,11 +48,9 @@ alphabetsoup:
     - XHTML
     - CSS
     - Javascript
-
     - Jquery
     - PHP
     - CVS / Subversion
-
     - OS X
     - Windows XP/Vista
     - Linux
@@ -92,8 +94,8 @@ education: # this section is not mandatory
       region: Indiana
       country: USA # not mandatory
       dates:
-        start: 2001-01-01
-        end: 2010-01-01 # not mandatory
+          start: 2001-01-01
+          end: 2010-01-01 # not mandatory
       title: Dual Major, Economics and English
       grade: 4.0 GPA # not mandatory
 
@@ -102,10 +104,13 @@ projects: # this section is not mandatory
       description: Resume Man is an HTML and PDF resume builder made in Ruby with Middleman.
       url: https://github.com/reefab/ResumeMan # not mandatory
       dates: # not mandatory
-        start: 2013-02-18
-        end: 2014-04-05 # not mandatory
+          start: 2013-02-18
+          end: 2014-04-05 # not mandatory
       location: # not mandatory
-        city: Florence
-        region: Tuscany
-        country: Italy # not mandatory
+          city: Florence
+          region: Tuscany
+          country: Italy # not mandatory
 
+interests:
+    - Underwater basket weaving
+    - Competitive Rock Paper Scissors

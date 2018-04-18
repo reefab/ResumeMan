@@ -2,7 +2,8 @@
 require 'maruku'
 ## Pdfmaker custom extension
 require 'makepdf'
-
+## For generating gravatar hash
+require 'digest/md5'
 
 ###
 # Compass
@@ -55,20 +56,25 @@ page "index.html", :layout => false
 
 helpers do
     def display_date(date)
-        # Change this if you prefer another date format: 
-        # http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html#method-i-strftime
         if date.is_a?(Date)
-            date.strftime("%e %B %Y")
+            # Change this if you prefer another date format:
+            # http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/Date.html#method-i-strftime
+            date.strftime("%Y-%m")
+            # Comment above and uncomment this if you want days displayed
+            # date.strftime("%Y-%m-%d")
         else
             date
         end
     end
-end
 
-helpers do
     def display_age(birthday)
         now = Date.today
         now.year - birthday.year - (Date.new(now.year, birthday.month, birthday.day) > now ? 1 : 0)
+    end
+
+    def gravatar_url(email)
+      hash = Digest::MD5.hexdigest email.downcase
+      "https://www.gravatar.com/avatar/#{hash}?s=130&d=mm"
     end
 end
 

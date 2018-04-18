@@ -1,0 +1,8 @@
+<div class="profile-container">
+    <img class="profile" src="<%= gravatar_url data.resume.info.email %>" alt="" />
+    <h1 class="name"><%= data.resume.info.name %></h1>
+    <h3 class="tagline"><%= data.resume.info.shortdesc %></h3>
+    <% if data.resume.info.dob? and data.resume.headers.age? %>
+        <h4 class="age"><%= display_age(data.resume.info.dob)%>&nbsp;<%= data.resume.headers.age %></h4>
+    <% end %>
+</div>

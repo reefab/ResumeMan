@@ -1,183 +1,28 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title><%= data.resume.info.name || "Resume" %></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<%= partial 'header' %>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="nine columns">
-                    <h1 class="fn"><%= data.resume.info.name %></h1>
-                    <h2><%= data.resume.info.shortdesc %></h2>
-                    <p class="summary"><%= Maruku.new(data.resume.info.desc).to_html %></p>
-                </div>
-                <div class="three columns pic">
-                    <img class="profile" src="http://placehold.it/130x130" alt="">
-                    <% if data.resume.info.dob? and data.resume.headers.age? %>
-                        <h4 class="age"><%= display_age(data.resume.info.dob)%>&nbsp;<%= data.resume.headers.age %></h4>
-                    <% end %>
-                    <% if data.resume.info.phone %>
-                        <a class="tel" href="tel:<%= data.resume.info.phone %>"><%= data.resume.info.phone %></a>
-                    <% end %>
-                    <a class="email" href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a>
-                    <% if data.resume.info.homepage? %>
-                        <a class="url" href="<%= data.resume.info.homepage %>"><%= data.resume.info.homepage %></a>
-                    <% end %>
-                </div>
-            </div>
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <%= partial 'profile' %>
+            <%= partial 'contact' %>
+            <%= partial 'education' %>
+            <%= partial 'languages' %>
+            <%= partial 'interests' %>
         </div>
-    </header>
-    <div class="container">
-        <div class="maincontent">
-            <div class="row">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.jobs %></h1>
-                </div>
-            </div>
-            <% data.resume.jobs.each do |job| %>
-            <div class="row">
-                <div class="four columns timeline">
-                    <h4>
-                        <span class="dtstart" title="<%= job.dates.start %>"><%= display_date(job.dates.start) %></span> -
-                        <span class="dtend" title="<%= job.dates.end %>"><%= display_date(job.dates.end) %></span>
-                    </h4>
-                </div>
-                <div class="seven columns offset-by-one">
-                    <% if job.url? %>
-                      <h2 class="location"><a href="<%= job.url%>" target=_blank><%= job.company %></a></h2>
-                    <% else %>
-                      <h2 class="location"><%= job.company %></h2>
-                    <% end %>
-                    <h3 class="summary"><% job.title %></h3>
-                    <p><%= Maruku.new(job.desc).to_html %></p>
-                </div>
-            </div>
-            <% end %>
-            <div class="row skills">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.skills %></h1>
-                </div>
-                <div class="seven columns offset-by-one">
-                    <% data.resume.alphabetsoup.each do |skill| %>
-                        <span><%= skill %></span>
-                    <% end %>
-                </div>
-            </div>
 
-            <% if data.resume.projects? %>
-            <div class="row">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.projects %></h1>
-                </div>
-                <div class="seven columns offset-by-one">
-                    <% data.resume.projects.each do |project| %>
-                        <% if project.url? %>
-                          <h2 class="fn url org"><a href="<%= project.url %>" target=_blank><%= project.name %></a></h2>
-                        <% else %>
-                          <h2 class="fn org"><%= project.name %></h2>
-                        <% end %>
-                        <% if project.dates? %>
-                        <h4>
-                            <abbr class="dtstart" title="<%= project.dates.start %>"><%= display_date(project.dates.start) %></abbr>
-                            <% if project.dates.end? %>
-                                - <abbr class="dtend" title="<%= project.dates.end %>"><%= display_date(project.dates.end) %></abbr>
-                            <% end %>
-                        </h4>
-                        <% end %>
-                        <% if project.location? %>
-                        <span class="adr">
-                            <span class="locality"><%= project.location.city %></span> - <span class="region"><%= project.location.region %></span>
-                            <% if project.location.country? %>
-                                <span class="country"> <%= project.location.country %></span>
-                            <% end %>
-                        </span>
-                        <% end %>
-                        <p><%= Maruku.new(project.description).to_html %></p>
-                    <% end %>
-                </div>
-            </div>
-            <% end %>
-
-            <% if data.resume.education? %>
-            <div class="row">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.education %></h1>
-                </div>
-            </div>
-                <% data.resume.education.each do |edu| %>
-                <div class="row">
-                    <div class="four columns timeline">
-                        <% if edu.url? %>
-                          <h2 class="fn url org"><a href="<%= edu.url %>"><%= edu.name %></a>,
-                        <% else %>
-                          <h2 class="fn org"><%= edu.name %>,
-                        <% end %>
-                    </div>
-                    <div class="seven columns offset-by-one">
-                        <span class="education vevent summary vcard">
-                                <span class="adr">
-                                    <span class="locality"><%= edu.city %></span>, <span class="region"><%= edu.region %></span>
-                                    <% if edu.country? %>
-                                        <span class="country"> <%= edu.country %></span>
-                                    <% end %>
-                                </span>
-                            </h2>
-                            <h4>
-                                <abbr class="dtstart" title="<%= edu.dates.start %>"><%= display_date(edu.dates.start) %></abbr>
-                                <% if edu.dates.end? %>
-                                    - <abbr class="dtend" title="<%= edu.dates.end %>"><%= display_date(edu.dates.end) %></abbr>
-                                <% end %>
-                            </h4>
-                            <h3><%= edu.title %> &nbsp; <strong><%= edu.grade if edu.grade? %></strong> </h3>
-                        </span>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-            <% end %>
-
-            <% if data.resume.languages? %>
-            <div class="row">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.languages %></h1>
-                </div>
-                <div class="seven columns offset-by-one">
-                    <% data.resume.languages.each do |lang| %>
-                        <h3><%= lang.name %></h3>
-                        <p><%= lang.level %></p>
-                    <% end %>
-                </div>
-            </div>
-            <% end %>
-
-            <div class="row">
-                <div class="four columns">
-                    <h1><%= data.resume.headers.links %></h1>
-                </div>
-                <div class="seven columns offset-by-one">
-                    <ul class="talent no-page-breaker">
-                    <% data.resume.links.each do |link| %>
-                        <li><%= link_to link.name, link.url %></li>
-                    <% end %>
-                    </ul>
-                </div>
-            </div>
-
-
+        <div class="main-wrapper">
+            <%= partial 'summary' %>
+            <%= partial 'experiences' %>
+            <%= partial 'projects' %>
+            <%= partial 'skills' %>
         </div>
-        <footer>
-           <%= data.resume.info.name %> &mdash; <a class="donotexpand" href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a> &mdash; <%= data.resume.info.phone  if data.resume.info.phone? %>
-        </footer>
     </div>
-</body>
 
+<%= partial 'footer' %>
+
+</body>
 </html>

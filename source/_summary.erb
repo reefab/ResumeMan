@@ -1,0 +1,6 @@
+<section class="section summary-section">
+    <h2 class="section-title"><i class="fa fa-user"></i><%= data.resume.headers.profile %></h2>
+    <div class="summary">
+        <p><%= Maruku.new(data.resume.info.desc).to_html %></p>
+    </div>
+</section>

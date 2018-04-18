@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+  <!-- template originally from http://sampleresumetemplate.net -->
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title></title>
+
+    <%= stylesheet_link_tag "reset-fonts-grids", "resume" , :media => "all"%>
+    <%= stylesheet_link_tag "print" , :media => "print"%>
+  </head>
+
+  <body class="<%= page_classes %> hresume">
+        <div id="doc2" class="yui-t7">
+            <div id="inner">
+
+                <div id="hd">
+                    <address class="vcard">
+                    <div class="yui-gc">
+                        <div class="yui-u first">
+                            <h1 class="fn"><%= data.resume.info.name %></h1>
+                            <h2><%= data.resume.info.shortdesc %></h2>
+                            <% if data.resume.info.dob? and data.resume.headers.age? %>
+                                <h3 class="age"><%= display_age(data.resume.info.dob)%>&nbsp;<%= data.resume.headers.age %></h3>
+                            <% end %>
+                        </div>
+
+                        <div class="yui-u">
+                            <div class="contact-info">
+                                <h3><a id="pdf" href="resume.pdf"><%= data.resume.headers.download %></a></h3>
+                                <h3><a class="email donotexpand" href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></h3>
+                                <% if data.resume.info.homepage? %>
+                                    <h3 class="url"><a class="donotexpand" href=<%= data.resume.info.homepage %> target=_blank><%= data.resume.info.homepage %></a></h3>
+                                <% end %>
+                                <% if data.resume.info.phone %>
+                                    <h3 class="tel"><%= data.resume.info.phone %></h3>
+                                <% end %>
+                                <span class="adr">
+                                    <h3>
+                                        <span class="street-address"><%= data.resume.info.address.street %></span>
+                                    </h3>
+                                    <h3>
+                                        <span class="locality"><%= data.resume.info.address.city %></span>,
+                                        <span class="region"><%= data.resume.info.address.region %></span>
+                                        <span class="postal-code"><%= data.resume.info.address.postal_code %></span>
+                                    </h3>
+                                    <h3>
+                                        <span class="country"><%= data.resume.info.address.country %></span>
+                                    </h3>
+                            </div><!--// .contact-info -->
+                        </div>
+                    </div><!--// .yui-gc -->
+                    </address>
+                </div><!--// hd -->
+
+                <div id="bd">
+                    <div id="yui-main">
+                        <div class="yui-b">
+
+                            <div class="yui-gf">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.profile %></h2>
+                                </div>
+                                <div class="yui-u">
+                                    <p class="summary"><%= Maruku.new(data.resume.info.desc).to_html %></p>
+                                </div>
+                            </div><!--// .yui-gf -->
+
+                            <div class="yui-gf">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.skills %></h2>
+                                </div>
+                                <div class="yui-u">
+                                    <% data.resume.skills.each do |skill| %>
+                                    <div class="talent">
+                                        <h2><%= skill.name %></h2>
+                                        <p><%= skill.desc %></p>
+                                    </div>
+                                    <% end %>
+                                </div>
+                            </div><!--// .yui-gf -->
+
+                            <div class="yui-gf no-page-breaker">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.techs %></h2>
+                                </div>
+                                <div class="yui-u">
+                                    <% data.resume.alphabetsoup.each.with_index do |skill, index| %>
+                                        <% if (index + 1) % 3 == 1 %>
+                                            <ul class="soup">
+                                        <% end %>
+
+                                        <li class="skill" rel="tag"><%= skill %></li>
+
+                                        <% if (index + 1) % 3 == 0 %>
+                                            </ul>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </div><!--// .yui-gf-->
+
+                            <div class="yui-gf no-page-breaker">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.jobs %></h2>
+                                </div><!--// .yui-u -->
+
+                                <div class="yui-u vcalendar">
+                                    <% data.resume.jobs.each do |job| %>
+                                    <div class="job no-page-breaker experience vevent">
+                                        <% if job.url? %>
+                                          <h2 class="location"><a href="<%= job.url%>" target=_blank><%= job.company %></a></h2>
+                                        <% else %>
+                                          <h2 class="location"><%= job.company %></h2>
+                                        <% end %>
+                                        <h3 class="summary"><%= job.title %></h3>
+                                        <h4>
+                                            <abbr class="dtstart" title="<%= job.dates.start %>"><%= display_date(job.dates.start) %></abbr> -
+                                            <abbr class="dtend" title="<%= job.dates.end %>"><%= display_date(job.dates.end) %></abbr>
+                                        </h4>
+                                        <p><%= Maruku.new(job.desc).to_html %></p>
+                                    </div>
+                                    <% end %>
+                                </div><!--// .yui-u -->
+                            </div><!--// .yui-gf -->
+
+                            <% if data.resume.projects? %>
+                            <div class="yui-gf no-page-breaker">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.projects %></h2>
+                                </div>
+                                <div class="yui-u" class="vcalendar">
+                                    <div class="no-page-breaker">
+                                    <% data.resume.projects.each do |project| %>
+                                        <div class="project vevent summary vcard">
+                                            <% if project.url? %>
+                                              <h2 class="fn url org"><a href="<%= project.url %>" target=_blank><%= project.name %></a></h2>
+                                            <% else %>
+                                              <h2 class="fn org"><%= project.name %></h2>
+                                            <% end %>
+                                            <% if project.dates? %>
+                                            <h4>
+                                                <abbr class="dtstart" title="<%= project.dates.start %>"><%= display_date(project.dates.start) %></abbr>
+                                                <% if project.dates.end? %>
+                                                    - <abbr class="dtend" title="<%= project.dates.end %>"><%= display_date(project.dates.end) %></abbr>
+                                                <% end %>
+                                            </h4>
+                                            <% end %>
+                                            <% if project.location? %>
+                                            <span class="adr">
+                                                <span class="locality"><%= project.location.city %></span> - <span class="region"><%= project.location.region %></span>
+                                                <% if project.location.country? %>
+                                                    <span class="country"> <%= project.location.country %></span>
+                                                <% end %>
+                                            </span>
+                                            <% end %>
+                                            <p><%= Maruku.new(project.description).to_html %></p>
+                                        </div>
+                                    <% end %>
+                                    </div>
+                                </div>
+                            </div><!--// .yui-gf -->
+                            <% end %>
+
+                            <% if data.resume.education? %>
+                            <div class="yui-gf no-page-breaker">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.education %></h2>
+                                </div>
+                                <div class="yui-u" class="vcalendar">
+                                    <div class="no-page-breaker">
+                                    <% data.resume.education.each do |edu| %>
+                                        <span class="education vevent summary vcard">
+                                            <% if edu.url? %>
+                                              <h2 class="fn url org"><a href="<%= edu.url %>"><%= edu.name %></a>,
+                                            <% else %>
+                                              <h2 class="fn org"><%= edu.name %>,
+                                            <% end %>
+                                                <span class="adr">
+                                                    <span class="locality"><%= edu.city %></span>, <span class="region"><%= edu.region %></span>
+                                                    <% if edu.country? %>
+                                                        <span class="country"> <%= edu.country %></span>
+                                                    <% end %>
+                                                </span>
+                                            </h2>
+                                            <h4>
+                                                <abbr class="dtstart" title="<%= edu.dates.start %>"><%= display_date(edu.dates.start) %></abbr>
+                                                <% if edu.dates.end? %>
+                                                    - <abbr class="dtend" title="<%= edu.dates.end %>"><%= display_date(edu.dates.end) %></abbr>
+                                                <% end %>
+                                            </h4>
+                                            <h3><%= edu.title %> &nbsp; <strong><%= edu.grade if edu.grade? %></strong> </h3>
+                                        </span>
+                                    <% end %>
+                                    </div>
+                                </div>
+                            </div><!--// .yui-gf -->
+                            <% end %>
+
+                            <% if data.resume.languages? %>
+                            <div class="yui-gf no-page-breaker">
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.languages %></h2>
+                                </div><!--// .yui-u -->
+
+                                <div class="yui-u">
+                                    <% data.resume.languages.each do |lang| %>
+                                    <div class="talent">
+                                        <h2><%= lang.name %></h2>
+                                        <p><%= lang.level %></p>
+                                    </div>
+                                    <% end %>
+                                </div><!--// .yui-u -->
+                            </div><!--// .yui-gf -->
+                            <% end %>
+
+                            <div class="yui-gf last no-page-breaker">
+
+                                <div class="yui-u first">
+                                    <h2><%= data.resume.headers.links %></h2>
+                                </div><!--// .yui-u -->
+
+                                <div class="yui-u">
+                                    <ul class="talent no-page-breaker">
+                                    <% data.resume.links.each do |link| %>
+                                        <li><%= link_to link.name, link.url %></li>
+                                    <% end %>
+                                    </ul>
+                                </div><!--// .yui-u -->
+                            </div><!--// .yui-gf -->
+
+                        </div><!--// .yui-b -->
+                    </div><!--// yui-main -->
+                </div><!--// bd -->
+
+  </body>
+</html>

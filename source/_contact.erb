@@ -1,0 +1,19 @@
+<div class="contact-container container-block">
+    <ul class="list-unstyled contact-list">
+        <li class="email"><i class="fa fa-envelope"></i><a href="mailto:<%= data.resume.info.email %>"><%= data.resume.info.email %></a></li>
+        <% if data.resume.info.phone %>
+            <li class="phone"><i class="fa fa-phone"></i><a href="tel:<%= data.resume.info.phone %>"><%= data.resume.info.phone %></a></li>
+        <% end %>
+        <% if data.resume.info.homepage? %>
+            <li class="website"><i class="fa fa-globe"></i><a href="<%= data.resume.info.homepage %>" target="_blank"><%= data.resume.info.homepage %></a></li>
+        <% end %>
+        <% %w[github linkedin twitter].each do |site| %>
+            <% if data.resume.info.include?(site) %>
+                <li class="<%= site %>"><i class="fa fa-<%= site %>"></i><a href="<%= data.resume.info[site] %>" target="_blank"><%= data.resume.info[site].gsub(/^https?\:\/\//, "") %></a></li>
+            <% end %>
+        <% end %>
+        <% data.resume.links.each do |link| %>
+            <li><i class="fa fa-link"></i><a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+        <% end %>
+    </ul>
+</div>
