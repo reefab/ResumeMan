@@ -6,6 +6,7 @@ It has the following features:
 
  * Separation between content and data, all your resume information is an YAML
    file.
+ * Uses your Gravatar picture.
  * Fork this project for maintaining multiple versions of your resume in sync.
  * Markdown for formatting of the longer paragraphs.
  * You can preview your changes with Middleman's included server (with
