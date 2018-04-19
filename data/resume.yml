@@ -112,6 +112,6 @@ projects: # this section is not mandatory
           region: Tuscany
           country: Italy # not mandatory
 
-interests:
+interests: # this section is not mandatory
     - Underwater basket weaving
     - Competitive Rock Paper Scissors
