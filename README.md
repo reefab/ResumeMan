@@ -8,7 +8,8 @@ It has the following features:
    file.
  * Fork this project for maintaining multiple versions of your resume in sync.
  * Markdown for formatting of the longer paragraphs.
- * You can preview your changes with Middleman's included server.
+ * You can preview your changes with Middleman's included server (with
+   livereload).
  * Automatic PDF generation using [wkhtmltopdf](http://wkhtmltopdf.org).
  * Turnkey deployment to a `http://yourusername.github.com/resume` page with no configuration necessary. 
 
