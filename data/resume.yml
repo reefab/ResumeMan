@@ -55,7 +55,7 @@ alphabetsoup:
     - Windows XP/Vista
     - Linux
 
-links:
+links: # this section is not mandatory
     - name: Link1
       url: http://example.com/
     - name: Another link

@@ -12,8 +12,10 @@
                 <li class="<%= site %>"><i class="fa fa-<%= site %>"></i><a href="<%= data.resume.info[site] %>" target="_blank"><%= data.resume.info[site].gsub(/^https?\:\/\//, "") %></a></li>
             <% end %>
         <% end %>
-        <% data.resume.links.each do |link| %>
-            <li><i class="fa fa-link"></i><a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+        <% if data.resume.links? %>
+            <% data.resume.links.each do |link| %>
+                <li><i class="fa fa-link"></i><a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+            <% end %>
         <% end %>
     </ul>
 </div>
