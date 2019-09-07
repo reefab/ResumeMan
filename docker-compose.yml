@@ -1,0 +1,9 @@
+version: '2'
+services:
+  preview:
+    build: .
+    volumes:
+      - ./source:/resume/source
+      - ./data:/resume/data
+    ports:
+      - 4567:4567
