@@ -5,7 +5,10 @@ require 'makepdf'
 ## For generating gravatar hash
 require 'digest/md5'
 
-activate :livereload
+js_host = ENV.fetch LIVERELOAD_HOST, '0.0.0.0'
+js_port = ENV.fetch LIVERELOAD_PORT, 35729
+
+activate :livereload, js_host: js_host, js_port: js_port
 
 ###
 # Compass

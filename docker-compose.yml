@@ -5,5 +5,10 @@ services:
     volumes:
       - ./source:/resume/source
       - ./data:/resume/data
+      - ./build:/resume/build
     ports:
       - 4567:4567
+      - 35729:35729
+    environment:
+      - LIVERELOAD_HOST=127.0.0.1
+      - LIVERELOAD_PORT=35729
