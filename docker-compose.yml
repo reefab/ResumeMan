@@ -1,7 +1,7 @@
 version: '2'
 services:
   preview:
-    build: .
+    image: reefab/resumeman
     volumes:
       - ./source:/resume/source
       - ./data:/resume/data

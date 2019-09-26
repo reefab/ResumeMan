@@ -32,7 +32,7 @@ See the result: [sample resume](http://reefab.github.com/ResumeMan/).
 
 ## In practice
 
-Fork this project and name it `resume` for example. 
+Fork this project and name it `resume`. 
 Follow the installation instructions below.
 
 To create/update your resume, you'll just need to edit the [`data/resume.yml`](https://github.com/reefab/ResumeMan/blob/master/data/resume.yml) file.
@@ -53,7 +53,7 @@ info:
         You can put Markdown in here [like this](http://daringfireball.net/projects/markdown/).
 ```
 
-You can preview your changes via `http://resume.dev/` if using Pow or `http://localhost:4567/` otherwise.
+You can preview your changes via `http://localhost:4567/`.
 
     bundle exec middleman build
 
@@ -63,7 +63,7 @@ Build the static version of your resume, it'll also create the PDF version.
 
 Upload it to a Github page. Your resume will be available at `http://yourusername.github.com/resume`.
 
-## Installation
+## Local installation
 
 If you forked to your own repo:
 

@@ -1,6 +1,7 @@
 FROM ruby:2.4.7
 
 EXPOSE 4567/tcp
+EXPOSE 35729/tcp
 LABEL maintainer="fabien@reefab.net"
 
 RUN mkdir -p /resume/build && mkdir -p /resume/tmp && mkdir -p /resume/vendor
