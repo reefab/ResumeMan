@@ -9,7 +9,7 @@ gem 'maruku', '~> 0.7.2'
 gem 'pdfkit', '~> 0.8.2'
 gem 'less', '~> 2.6.0'
 gem 'therubyracer'
-gem 'wkhtmltopdf_binary_provider', '~> 0.12.0'
+gem 'wkhtmltopdf-binary', '~> 0.12.5'
 
 if /linux|bsd/ =~ RUBY_PLATFORM
     gem 'execjs'

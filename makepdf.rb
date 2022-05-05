@@ -9,7 +9,8 @@ module PdfMaker
                                 :print_media_type => true,
                                 :viewport_size => '2480x3508',
                                 :zoom => 0.8,
-                                :dpi => 300)
+                                :dpi => 300,
+                                :enable_local_file_access => true)
 
                     file = kit.to_file('build/resume.pdf')
 
