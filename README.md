@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/reefab/ResumeMan.svg?branch=master)](https://travis-ci.org/reefab/ResumeMan)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+![Docker Pulls](https://img.shields.io/docker/pulls/reefab/resumeman)
 
 # Resume Man
 
@@ -33,7 +34,7 @@ See the result: [sample resume](http://reefab.github.com/ResumeMan/).
 
 ## In practice
 
-Fork this project and name it `resume`. 
+Fork this project and name it `resume` (suggested).
 Follow the installation instructions below.
 
 To create/update your resume, you'll just need to edit the [`data/resume.yml`](https://github.com/reefab/ResumeMan/blob/master/data/resume.yml) file.
@@ -56,25 +57,23 @@ info:
 
 You can preview your changes via `http://localhost:4567/`.
 
-    bundle exec middleman build
+### Docker installation (recommended)
+
+Launch the previewing server:
+
+    docker-compose up -d
 
 Build the static version of your resume, it'll also create the PDF version.
 
-    bundle exec middleman deploy
+    docker-compose exec preview bundle exec middleman build
 
 Upload it to a Github page. Your resume will be available at `http://yourusername.github.com/resume`.
 
-## Local installation
+    ./deploy.sh
 
-If you forked to your own repo:
+### Manual installation (deprecated)
 
-    git clone https://github.com/<yourusername>/resume.git
-    cd resume
-
-Otherwise:
-
-    git clone https://github.com/reefab/ResumeMan.git
-    cd ResumeMan
+*Probably won't work on recent systems due to dependencies issues.*
 
 Install all dependencies:
 
@@ -84,3 +83,12 @@ Install all dependencies:
 Launch the previewing server:
 
     bundle exec middleman
+
+Build the static version of your resume, it'll also create the PDF version.
+
+    bundle exec middleman build
+
+Upload it to a Github page. Your resume will be available at `http://yourusername.github.com/resume`.
+
+    bundle exec middleman deploy
+
