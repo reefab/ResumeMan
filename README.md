@@ -30,7 +30,7 @@ There is multiple alternate colors available that you can select by modifying `s
 
 ## Preview
 
-See the result: [sample resume](http://reefab.github.com/ResumeMan/).
+See the result: [sample resume](http://reefab.github.io/ResumeMan/).
 
 ## In practice
 
