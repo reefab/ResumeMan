@@ -14,4 +14,4 @@ jobs:
       - name: Set up container using docker compose
         run: docker-compose up -d
       - name: Run build
-        run: docker-compose exec preview bundle exec middleman build
+        run: docker-compose exec -it preview bundle exec middleman build
