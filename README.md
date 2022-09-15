@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/reefab/ResumeMan.svg?branch=master)](https://travis-ci.org/reefab/ResumeMan)
+![Build Status](https://github.com/reefab/ResumeMan/actions/workflows/build.yaml/badge.svg?event=push)
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 ![Docker Pulls](https://img.shields.io/docker/pulls/reefab/resumeman)
 
