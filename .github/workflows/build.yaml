@@ -7,18 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
-
-    runs-on: ubuntu-20.04
-
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-        with:
-          ruby-version: '2.4'
-          bundler-cache: true
-      - name: Install dependencies
-        run: bundle install
+      - name: Set up container using docker compose
+        run: docker-compose up -d
       - name: Run build
-        run: bundle exec middleman build
+        run: docker-compose exec preview bundle exec middleman build
