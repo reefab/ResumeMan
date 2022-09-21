@@ -17,7 +17,8 @@ It has the following features:
  * You can preview your changes with Middleman's included server (with
    livereload).
  * Automatic PDF generation using [wkhtmltopdf](http://wkhtmltopdf.org).
- * Turnkey deployment to a `http://yourusername.github.com/resume` page with no configuration necessary. 
+ * Turnkey deployment to a `http://yourusername.github.io/resume` [GitHub page](https://pages.github.com) with no configuration necessary.
+ * No external requests except for Gravatar picture if applicable, you can preview and build offline.
 
 ## Template used
 
@@ -58,6 +59,12 @@ info:
 
 You can preview your changes via `http://localhost:4567/`.
 
+### Custom domain
+
+To use a custom domain with GitHub Pages, add a `CNAME` file in the `source` directory with your domain name and follow GitHub's documentation:
+
+[About custom domains and Github Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages).
+
 ### Docker installation (recommended)
 
 Launch the previewing server:
@@ -68,7 +75,7 @@ Build the static version of your resume, it'll also create the PDF version.
 
     docker-compose exec preview bundle exec middleman build
 
-Upload it to a Github page. Your resume will be available at `http://yourusername.github.com/resume`.
+Upload it to a Github page. Your resume will be available at `http://yourusername.github.io/resume`.
 
     ./deploy.sh
 
@@ -89,7 +96,7 @@ Build the static version of your resume, it'll also create the PDF version.
 
     bundle exec middleman build
 
-Upload it to a Github page. Your resume will be available at `http://yourusername.github.com/resume`.
+Upload it to a Github page. Your resume will be available at `http://yourusername.github.io/resume`.
 
     bundle exec middleman deploy
 
